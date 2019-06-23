@@ -1,0 +1,103 @@
+{{ header }}
+{{ column_left }}
+<div id="content">
+    <div class="page-header">
+        <div class="container-fluid">
+            <div class="pull-right">
+                <button type="submit" form="form-module" data-toggle="tooltip" title="{{ button_save }}" class="btn btn-primary"><i class="fa fa-save"></i></button>
+                <a href="{{ cancel }}" data-toggle="tooltip" title="{{ button_cancel }}" class="btn btn-default"><i class="fa fa-reply"></i></a></div>
+            <h1>{{ heading_title }}</h1>
+            <ul class="breadcrumb">
+                {% for breadcrumb in breadcrumbs %}
+                    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="container-fluid">
+        {% if error_warning %}
+            <div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+            </div>
+        {% endif %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-pencil"></i> {{ text_edit }}</h3>
+            </div>
+            <div class="panel-body">
+                <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-module" class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="input-status">{{ entry_status }}</label>
+                        <div class="col-sm-4">
+                            <select name="status" id="input-status" class="form-control">
+                                {% if status %}
+                                    <option value="1" selected="selected">{{ text_enabled }}</option>
+                                    <option value="0">{{ text_disabled }}</option>
+                                {% else %}
+                                    <option value="1">{{ text_enabled }}</option>
+                                    <option value="0" selected="selected">{{ text_disabled }}</option>
+                                {% endif %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="input-sn-facebook">{{ entry_facebook }}</label>
+                        <div class="col-sm-4">
+                            <input type="text"
+                                   name="social[facebook]"
+                                   id="input-sn-facebook"
+                                   class="form-control"
+                                   value="{{ social_facebook }}"
+                                   placeholder="{{ entry_facebook_placeholder }}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="input-sn-twitter">{{ entry_twitter }}</label>
+                        <div class="col-sm-4">
+                            <input type="text"
+                                   name="social[twitter]"
+                                   id="input-sn-twitter"
+                                   class="form-control"
+                                   value="{{ social_twitter }}"
+                                   placeholder="{{ entry_twitter_placeholder }}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="input-sn-linkedin">{{ entry_linkedin }}</label>
+                        <div class="col-sm-4">
+                            <input type="text"
+                                   name="social[linkedin]"
+                                   id="input-sn-linkedin"
+                                   class="form-control"
+                                   value="{{ social_linkedin }}"
+                                   placeholder="{{ entry_linkedin_placeholder }}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="input-sn-youtube">{{ entry_youtube }}</label>
+                        <div class="col-sm-4">
+                            <input type="text"
+                                   name="social[youtube]"
+                                   id="input-sn-youtube"
+                                   class="form-control"
+                                   value="{{ social_youtube }}"
+                                   placeholder="{{ entry_youtube_placeholder }}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="input-sn-youtube">{{ entry_instagram }}</label>
+                        <div class="col-sm-4">
+                            <input type="text"
+                                   name="social[instagram]"
+                                   id="input-sn-instagram"
+                                   class="form-control"
+                                   value="{{ social_instagram }}"
+                                   placeholder="{{ entry_instagram_placeholder }}">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{{ footer }}
